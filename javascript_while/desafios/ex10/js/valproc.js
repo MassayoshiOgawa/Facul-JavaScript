@@ -5,6 +5,7 @@ function validaFormulario() {
         if(verify == true){
             verify = false
             msg = "Usuário incorreto. Insira o nome de usuário: "
+            console.log("Usuário incorreto. Insira o nome correto do usuário.")
         }
         let answer = prompt(msg)
         console.log("Usuário inserido: " + answer)
