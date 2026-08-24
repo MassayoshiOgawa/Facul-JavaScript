@@ -20,7 +20,7 @@ function validaFormulario() {
         return false;
     }
 
-    if (cadastrado == false) {
+    if (dropdown.value == "op3") {
         console.log(" [ - ] Cadastro dos clientes e das compras dos 3 últimos meses...")
 
         for (let i = 0; i < 3; i++) {
@@ -68,29 +68,35 @@ function validaFormulario() {
             }
         }
         cadastrado = true
-    }
-
-    if (dropdown.value == "op1") {
-        let indice = -1
-        for (let i = 0; i < 3; i++) {
-            if (clientes[i] == nome) {
-                indice = i
-            }
-        }
-        if (indice == -1) {
-            alert(" [ - ] Cliente não encontrado.")
-        } else {
-            console.log(" [ - ] Cliente: " + clientes[indice])
-            console.log(" [ - ] Mês 1: R$ " + matriz[indice][0] + " | Mês 2: R$ " + matriz[indice][1] + " | Mês 3: R$ " + matriz[indice][2])
-            console.log(" [ - ] Quantidade de compras: " + qtdCompras[indice])
-            console.log(" [ - ] Média das compras: R$ " + mediaCompras[indice])
-        }
+        console.log(" [ - ] Clientes cadastrados com sucesso! Escolha uma opção do menu para consultar.")
     } else {
-        for (let i = 0; i < 3; i++) {
-            console.log(" [ - ] Cliente: " + clientes[i])
-            console.log(" [ - ] Mês 1: R$ " + matriz[i][0] + " | Mês 2: R$ " + matriz[i][1] + " | Mês 3: R$ " + matriz[i][2])
-            console.log(" [ - ] Quantidade de compras: " + qtdCompras[i])
-            console.log(" [ - ] Média das compras: R$ " + mediaCompras[i])
+        if (cadastrado == false) {
+            alert(" [ - ] Nenhum cliente cadastrado. Use a opção 'Adicionar clientes' primeiro.");
+            return false;
+        }
+
+        if (dropdown.value == "op1") {
+            let indice = -1
+            for (let i = 0; i < 3; i++) {
+                if (clientes[i] == nome) {
+                    indice = i
+                }
+            }
+            if (indice == -1) {
+                alert(" [ - ] Cliente não encontrado.")
+            } else {
+                console.log(" [ - ] Cliente: " + clientes[indice])
+                console.log(" [ - ] Mês 1: R$ " + matriz[indice][0] + " | Mês 2: R$ " + matriz[indice][1] + " | Mês 3: R$ " + matriz[indice][2])
+                console.log(" [ - ] Quantidade de compras: " + qtdCompras[indice])
+                console.log(" [ - ] Média das compras: R$ " + mediaCompras[indice])
+            }
+        } else {
+            for (let i = 0; i < 3; i++) {
+                console.log(" [ - ] Cliente: " + clientes[i])
+                console.log(" [ - ] Mês 1: R$ " + matriz[i][0] + " | Mês 2: R$ " + matriz[i][1] + " | Mês 3: R$ " + matriz[i][2])
+                console.log(" [ - ] Quantidade de compras: " + qtdCompras[i])
+                console.log(" [ - ] Média das compras: R$ " + mediaCompras[i])
+            }
         }
     }
     return false
